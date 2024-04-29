@@ -1,1 +1,50 @@
 hello world
+
+Authors: Kevin Tran, Ashley Garcia
+Date: 04.29.2024
+Purpose: Final Design Doc
+
+
+Main Function:
+Data:
+Functionality: call upon all of the functions.
+
+Menu Funtion:
+Parameters: chars/ints
+Return: user input (char/int)
+Functionality: present the user with a menu and save their input
+
+Load Image Function:
+Parameters: File Pointer, int row, int column, 2d-array
+Return: nothing
+Functionality: save values into the 2d-array
+
+display image function:
+Parameters: File name string, int row, int column, 2d-array
+Return: nothing
+Functionality: display the image given by the user
+
+Edit Menu Function: 
+Parameters: char/ints
+Return: user input(char/int)
+Functionality:  present the user with a menu and save their input
+
+crop function:
+Parameters: int row1, int column1, int column2, int column2, 2d-array1, 2d-array2
+return: nothing
+functionality: ask user for what area they want to keep, and save that to a new 2d-array
+
+dim function:
+parameters: int row1, int column1, int column2, int column2, 2d-array1, 2d-array2
+return: nothing
+functionality: change the values in the array (decrease by 1) and save it to a new one
+
+brightness function:
+parameters: int row1, int column1, int column2, int column2, 2d-array1, 2d-array2
+return: nothing
+functionality: change the values in the array (increase by 1) and save it to a new one
+
+rotation function:
+paramters: int row1, int column1, int column2, int column2, 2d-array1, 2d-array2
+return: nothing
+functionality: move the values in the 2d-array
