@@ -158,36 +158,6 @@ int displayImage(int a2DArray[][21], int row, col;){
 			}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void dimimage(){
 	int row;
 	int col;
