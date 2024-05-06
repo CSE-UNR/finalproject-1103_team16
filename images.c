@@ -4,8 +4,8 @@
 
 
 #include <stdio.h>
-#define ROW 11
-#define COL 21
+#define ROW 100
+#define COL 100
 int getMENUCHOICE();
 int getEDITCHOICE();
 
@@ -40,6 +40,8 @@ int loadImage(){
 int main(){
 	int menuchoice;
 	int editchoice;
+	int loadimage;
+	int display image;
 	
 	do{
 		menuchoice = getMENUCHOICE();
@@ -159,11 +161,21 @@ int displayImage(int a2DArray[][21], int row, col;){
 void dimimage(){
 	int row;
 	int col;
+	char edited[ROW][COL];
 	
 	for(row = 0; row < ROW; row++){
 		for(col = 0; col < COL; col++){
-			if(){
-			
+			if(a2dARRAY[row][col] == 1){
+				edited[row][col] == ' ';
+			}
+			if(a2dARRAY[row][col] == 2){
+				edited[row][col] == '.';
+			}
+			if(a2dARRAY[row][col] == 3){
+				edited[row][col] == 'o';
+			}
+			if(a2dARRAY[row][col] == 4){
+				edited[row][col] == 'O';
 			}
 
 		}
@@ -173,12 +185,21 @@ void dimimage(){
 void brightenimage(){
 	int row;
 	int col;
+	char edited[ROW][COL];
 	
-	for(row = 0; row < ROW; row++){
-		for(col = 0; col < COL; col++){
-			if(){
-			
+	for(col = 0; col < COL; col++){
+			if(a2dARRAY[row][col] == 0){
+				edited[row][col] == '.';
 			}
+			if(a2dARRAY[row][col] == 1){
+				edited[row][col] == 'o';
+			}
+			if(a2dARRAY[row][col] == 2){
+				edited[row][col] == 'O';
+			}
+			if(a2dARRAY[row][col] == 3){
+				edited[row][col] == '0';
+			}
+
 		}
-	}
 }
