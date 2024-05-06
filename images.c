@@ -6,9 +6,10 @@
 #include <stdio.h>
 #define ROW 11
 #define COL 21
+
 int getMENUCHOICE();
 int getEDITCHOICE();
-
+int displayImage();
 int loadImage();
 int saveImage();
 int cropImage();
@@ -134,14 +135,26 @@ int saveImage(){
 	scanf(" %c", &choice);
 	
 		if(choice == 'y' || 'Y'){
-			printf("bet\n"); //place holder 
+			FILE* fp;
+			fp = fopen("test_image.txt", "w");
+			if(fp == NULL){
+			printf("File cannot be opened\n");		 
+		}
+			fprintf(fp, "NUMBER STATS\n"); // figure out lol
+			display(fp, numbers, 10);
+			
+			
+			fclose(fp);
+		}
+			printf("Image was saved\n"); //place holder 
+			
 		}
 		if(choice == 'n' || 'N'){
-			printf("bruh\n");//place holder
+			printf("Image was not saved\n");//place holder
 		}
 }
 int cropImage(){
-int a2DArray[ROW][COL];
+int a2DArray[ROW][COL]; //new int to start
 			for(row = 0; row < ROW; row++){
 				for(col = 0; col < COL; col++){
 					printf("%d ", a2DArray[row][col]);
