@@ -158,7 +158,7 @@ int displayImage(int a2DArray[][21], int row, col;){
 			}
 }
 
-void dimimage(){
+void dimimage(int a2DArray[][21], int row, col){
 	int row;
 	int col;
 	char edited[ROW][COL];
@@ -180,9 +180,14 @@ void dimimage(){
 
 		}
 	}
+	for(row = 0; row < ROW; row++){
+		for(col = 0; col < COL; col++){
+			printf("%c", edited[ROW][COL]);
+		}
+	}
 }
 
-void brightenimage(){
+void brightenimage(int a2DArray[][21], int row, col){
 	int row;
 	int col;
 	char edited[ROW][COL];
@@ -202,4 +207,9 @@ void brightenimage(){
 			}
 
 		}
+	for(row = 0; row < ROW; row++){
+		for(col = 0; col < COL; col++){
+			printf("%c", edited[ROW][COL]);
+		}
+	}
 }
