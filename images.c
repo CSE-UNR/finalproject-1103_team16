@@ -159,3 +159,82 @@ int displayImage(int a2DArray[][21], int row, col;){
 					printf("%d ", a2DArray[row][col]);
 			}
 }
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void dimimage(){
+	int row;
+	int col;
+	char edited[ROW][COL];
+	
+	for(row = 0; row < ROW; row++){
+		for(col = 0; col < COL; col++){
+			if(a2dARRAY[row][col] == 1){
+				edited[row][col] == ' ';
+			}
+			if(a2dARRAY[row][col] == 2){
+				edited[row][col] == '.';
+			}
+			if(a2dARRAY[row][col] == 3){
+				edited[row][col] == 'o';
+			}
+			if(a2dARRAY[row][col] == 4){
+				edited[row][col] == 'O';
+			}
+
+		}
+	}
+}
+
+void brightenimage(){
+	int row;
+	int col;
+	char edited[ROW][COL];
+	
+	for(col = 0; col < COL; col++){
+			if(a2dARRAY[row][col] == 0){
+				edited[row][col] == '.';
+			}
+			if(a2dARRAY[row][col] == 1){
+				edited[row][col] == 'o';
+			}
+			if(a2dARRAY[row][col] == 2){
+				edited[row][col] == 'O';
+			}
+			if(a2dARRAY[row][col] == 3){
+				edited[row][col] == '0';
+			}
+
+		}
+}
+
