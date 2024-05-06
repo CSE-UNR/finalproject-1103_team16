@@ -135,16 +135,7 @@ int saveImage(){
 	scanf(" %c", &choice);
 	
 		if(choice == 'y' || 'Y'){
-			FILE* fp;
-			fp = fopen("test_image.txt", "w");
-			if(fp == NULL){
-			printf("File cannot be opened\n");		 
-		}
-			fprintf(fp, "NUMBER STATS\n"); // figure out lol
-			display(fp, numbers, 10);
 			
-			
-			fclose(fp);
 		}
 			printf("Image was saved\n"); //place holder 
 			
