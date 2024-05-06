@@ -1,18 +1,41 @@
-//Authors: Kevin Tran & Ashely Garcia
+//Authors: Kevin Tran & Ashley Garcia
 //Date: 05.04.2024
 //Purpose: Final Project/Image Stuff
 
 
 #include <stdio.h>
-
+#define ROW 11
+#define COL 21
 int getMENUCHOICE();
 int getEDITCHOICE();
-//load image function goes here
-//save image function goes here
-//crop image function goes here
+
+int loadImage();
+int saveImage();
+int cropImage();
 void dimimage();
 void brightenimage();
 //rotate image function goes here (EXTRA CREDIT)
+
+int loadImage(){
+			int row, col;
+			FILE* fp;
+			fp = fopen("test_image.txt", "r");
+			if(fp == NULL){
+			printf("File cannot be opened\n");
+			
+		return 0;
+	}
+	
+		else{
+			int a2DArray[ROW][COL];
+			for(row = 0; row < ROW; row++){
+				for(col = 0; col < COL; col++){
+					printf("%d ", a2DArray[ROW][COL]);
+			}
+		}
+		fclose(fp);
+	}	
+}
 
 int main(){
 	int menuchoice;
@@ -23,10 +46,10 @@ int main(){
 		
 		switch(menuchoice){
 			case 1:
-				//load image stuff goes here
+				loadimage = loadImage();
 				break;
 			case 2:
-				//display image stuff goes here
+				displayimage = displayImage();
 				break;
 			case 3:
 				editchoice = getEDITCHOICE();
@@ -104,10 +127,31 @@ int getEDITCHOICE(){
 	return userinput;
 }
 
-void dimimage(){
+int saveImage(){
+	char choice;
 	
+	printf("Would you like to save this image?\n");
+	scanf(" %c", &choice);
+	
+		if(choice == 'y' || 'Y'){
+			printf("bet\n"); //place holder 
+		}
+		if(choice == 'n' || 'N'){
+			printf("bruh\n");//place holder
+		}
+}
+int cropImage(){
+int a2DArray[ROW][COL];
+			for(row = 0; row < ROW; row++){
+				for(col = 0; col < COL; col++){
+					printf("%d ", a2DArray[row][col]);
+			}
 }
 
-void brightenimage (){
-
+int displayImage(int a2DArray[][21], int row, col;){
+	int a2DArray[ROW][COL];
+			for(row = 0; row < ROW; row++){
+				for(col = 0; col < COL; col++){
+					printf("%d ", a2DArray[row][col]);
+			}
 }
