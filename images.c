@@ -4,12 +4,11 @@
 
 
 #include <stdio.h>
-#define ROW 11
-#define COL 21
-
+#define ROW 100
+#define COL 100
 int getMENUCHOICE();
 int getEDITCHOICE();
-int displayImage();
+
 int loadImage();
 int saveImage();
 int cropImage();
@@ -41,6 +40,8 @@ int loadImage(){
 int main(){
 	int menuchoice;
 	int editchoice;
+	int loadimage;
+	int display image;
 	
 	do{
 		menuchoice = getMENUCHOICE();
@@ -135,17 +136,14 @@ int saveImage(){
 	scanf(" %c", &choice);
 	
 		if(choice == 'y' || 'Y'){
-			
-		}
-			printf("Image was saved\n"); //place holder 
-			
+			printf("bet\n"); //place holder 
 		}
 		if(choice == 'n' || 'N'){
-			printf("Image was not saved\n");//place holder
+			printf("bruh\n");//place holder
 		}
 }
 int cropImage(){
-int a2DArray[ROW][COL]; //new int to start
+int a2DArray[ROW][COL];
 			for(row = 0; row < ROW; row++){
 				for(col = 0; col < COL; col++){
 					printf("%d ", a2DArray[row][col]);
@@ -159,38 +157,6 @@ int displayImage(int a2DArray[][21], int row, col;){
 					printf("%d ", a2DArray[row][col]);
 			}
 }
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void dimimage(){
 	int row;
@@ -237,4 +203,3 @@ void brightenimage(){
 
 		}
 }
-
