@@ -155,3 +155,30 @@ int displayImage(int a2DArray[][21], int row, col;){
 					printf("%d ", a2DArray[row][col]);
 			}
 }
+
+void dimimage(){
+	int row;
+	int col;
+	
+	for(row = 0; row < ROW; row++){
+		for(col = 0; col < COL; col++){
+			if(){
+			
+			}
+
+		}
+	}
+}
+
+void brightenimage(){
+	int row;
+	int col;
+	
+	for(row = 0; row < ROW; row++){
+		for(col = 0; col < COL; col++){
+			if(){
+			
+			}
+		}
+	}
+}
