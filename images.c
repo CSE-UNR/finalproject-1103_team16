@@ -18,16 +18,7 @@ void dimimage();
 void brightenimage();
 //rotate image function goes here (EXTRA CREDIT)
 
-<<<<<<< HEAD
-int loadImage(int a2DArray[ROW][COL]){
-			int row, col;
-			FILE* fp;
-			fp = fopen("test_image.txt", "r");
-			if(fp == NULL){
-			printf("File cannot be opened\n");
-			
-=======
-int loadImage(int a2DArray[][COL], int i, int j){
+int loadImage(){
 	char filename[STR_LEN+1];
 	
 	printf("Please enter the name of the file you wish to load in:\n");
@@ -37,25 +28,19 @@ int loadImage(int a2DArray[][COL], int i, int j){
 	fp = fopen(filename, "r");
 	if(fp = NULL){
 		printf("File cannot be opened (¬_¬')\n");
->>>>>>> 604ca335811c12d8a9c42eaea9e0c27dbb822c85
 		return 0;
 	}
 	else{
-		for(i = 0; i < ROW; i++){
-			for(j = 0; j < COL; j++){
-				fscanf(fp, " %d", &a2DArray[i][j]);
-			}
-		}
-		
+
 	}
-}
 	fclose(fp);	
+}
 
 int main(){
 	int menuchoice;
 	int editchoice;
 	int loadimage;
-	int displayimage;
+	int display image;
 	
 	do{
 		menuchoice = getMENUCHOICE();
@@ -143,8 +128,9 @@ int getEDITCHOICE(){
 	return userinput;
 }
 
+
 int saveImage(int a2DArray[ROW][COL], int row, int col){
-	char choice;
+char choice;
 	
 	printf("Would you like to save this image?\n");
 	scanf(" %c", &choice);
@@ -155,89 +141,71 @@ int saveImage(int a2DArray[ROW][COL], int row, int col){
 			if(fp == NULL){
 			printf("File cannot be opened\n");		 
 		}
-			for(row = 0; row < ROW; row++){
-				for(col = 0; col < COL; col++){
-					fprintf("%d ", a2DArray[row][col]);
-			}
-			fprintf(fp, "\n");
-			}
-			printf("Image was saved!\n");
-			
-			fclose(fp);
-		}else{
-			printf("Image was not saved");
-		}
 	}
-		
-int cropImage(int a2DArray[ROW][COL], int row, int col, int beginRow, int beginCol, int cropRow, int cropCol){
+}
+	
+int cropImage(int a2DArray[ROW][COL], int cropRow, int cropCol){
 
 		cropRow = beginRow - ROW;
-		cropCol = beginCol - COL;
-			for(row = beginRow; row < ROW; row++){
-				for(col = beginCol; col < COL; col++){
-					printf("%d ", a2DArray[row][col]);
-			}
-			printf("\n");
-}
+				cropCol = beginCol - COL;
+					for(row = beginRow; row < ROW; row++){
+						for(col = beginCol; col < COL; col++){
+							printf("%d ", a2DArray[row][col]);
+					}
+		}
+}		
 
-int displayImage(int a2DArray[][21], int row, int col){
+int displayImage(int a2DArray[][21], int row, col;){
 	int a2DArray[ROW][COL];
 			for(row = 0; row < ROW; row++){
 				for(col = 0; col < COL; col++){
 					printf("%d ", a2DArray[row][col]);
 			}
-			
 }
 
-void dimimage(int a2DArray[][COL], int row, int col){
-	
+void dimimage(){
+	int row;
+	int col;
 	char edited[ROW][COL];
 	
 	for(row = 0; row < ROW; row++){
 		for(col = 0; col < COL; col++){
-			if(a2DArray[row][col] == 1){
+			if(a2dARRAY[row][col] == 1){
 				edited[row][col] == ' ';
 			}
-			if(a2DArray[row][col] == 2){
+			if(a2dARRAY[row][col] == 2){
 				edited[row][col] == '.';
 			}
-			if(a2DArray[row][col] == 3){
+			if(a2dARRAY[row][col] == 3){
 				edited[row][col] == 'o';
 			}
-			if(a2DArray[row][col] == 4){
+			if(a2dARRAY[row][col] == 4){
 				edited[row][col] == 'O';
 			}
 
 		}
 	}
-	for(row = 0; row < ROW; row++){
-		for(col = 0; col < COL; col++){
-			printf("%c", edited[row][col]);
-		}
-	}
+	
 }
 
-void brightenimage(int a2DArray[][COL], int row, int col){
-	
+void brightenimage(){
+	int row;
+	int col;
 	char edited[ROW][COL];
 	
 	for(col = 0; col < COL; col++){
-		if(a2DArray[row][col] == 0){
-			edited[row][col] == '.';
+			if(a2dARRAY[row][col] == 0){
+				edited[row][col] == '.';
+			}
+			if(a2dARRAY[row][col] == 1){
+				edited[row][col] == 'o';
+			}
+			if(a2dARRAY[row][col] == 2){
+				edited[row][col] == 'O';
+			}
+			if(a2dARRAY[row][col] == 3){
+				edited[row][col] == '0';
+			}
+
 		}
-		if(a2DArray[row][col] == 1){
-			edited[row][col] == 'o';
-		}
-		if(a2DArray[row][col] == 2){
-			edited[row][col] == 'O';
-		}
-		if(a2DArray[row][col] == 3){
-			edited[row][col] == '0';
-		}
-	}
-	for(row = 0; row < ROW; row++){
-		for(col = 0; col < COL; col++){
-			printf("%c", edited[row][col]);
-		}
-	}
 }
