@@ -27,7 +27,7 @@ int loadImage(int a2DArray[ROW][COL]){
 			printf("File cannot be opened\n");
 			
 =======
-int loadImage(){
+int loadImage(int a2DArray[][COL], int i, int j){
 	char filename[STR_LEN+1];
 	
 	printf("Please enter the name of the file you wish to load in:\n");
@@ -41,10 +41,15 @@ int loadImage(){
 		return 0;
 	}
 	else{
-
+		for(i = 0; i < ROW; i++){
+			for(j = 0; j < COL; j++){
+				fscanf(fp, " %d", &a2DArray[i][j]);
+			}
+		}
+		
 	}
-	fclose(fp);	
 }
+	fclose(fp);	
 
 int main(){
 	int menuchoice;
@@ -184,7 +189,7 @@ int displayImage(int a2DArray[][21], int row, int col){
 			
 }
 
-void dimimage(int a2DArray[ROW][COL], int row, int col){
+void dimimage(int a2DArray[][COL], int row, int col){
 	
 	char edited[ROW][COL];
 	
@@ -205,26 +210,34 @@ void dimimage(int a2DArray[ROW][COL], int row, int col){
 
 		}
 	}
-	
+	for(row = 0; row < ROW; row++){
+		for(col = 0; col < COL; col++){
+			printf("%c", edited[row][col]);
+		}
+	}
 }
 
-void brightenimage(int a2DArray[ROW][COL], int row, int col){
+void brightenimage(int a2DArray[][COL], int row, int col){
 	
 	char edited[ROW][COL];
 	
 	for(col = 0; col < COL; col++){
-			if(a2DArray[row][col] == 0){
-				edited[row][col] == '.';
-			}
-			if(a2DArray[row][col] == 1){
-				edited[row][col] == 'o';
-			}
-			if(a2DArray[row][col] == 2){
-				edited[row][col] == 'O';
-			}
-			if(a2DArray[row][col] == 3){
-				edited[row][col] == '0';
-			}
-
+		if(a2DArray[row][col] == 0){
+			edited[row][col] == '.';
 		}
+		if(a2DArray[row][col] == 1){
+			edited[row][col] == 'o';
+		}
+		if(a2DArray[row][col] == 2){
+			edited[row][col] == 'O';
+		}
+		if(a2DArray[row][col] == 3){
+			edited[row][col] == '0';
+		}
+	}
+	for(row = 0; row < ROW; row++){
+		for(col = 0; col < COL; col++){
+			printf("%c", edited[row][col]);
+		}
+	}
 }
