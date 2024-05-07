@@ -6,6 +6,7 @@
 #include <stdio.h>
 #define ROW 100
 #define COL 100
+#define STR_LEN 100
 int getMENUCHOICE();
 int getEDITCHOICE();
 
@@ -17,24 +18,21 @@ void brightenimage();
 //rotate image function goes here (EXTRA CREDIT)
 
 int loadImage(){
-			int row, col;
-			FILE* fp;
-			fp = fopen("test_image.txt", "r");
-			if(fp == NULL){
-			printf("File cannot be opened\n");
-			
+	char filename[STR_LEN+1];
+	
+	printf("Please enter the name of the file you wish to load in:\n");
+	scanf("%s", filename);
+	
+	FILE *fp
+	fp = fopen(filename, "r");
+	if(fp = NULL){
+		printf("File cannot be opened (¬_¬')\n");
 		return 0;
 	}
-	
-		else{
-			int a2DArray[ROW][COL];
-			for(row = 0; row < ROW; row++){
-				for(col = 0; col < COL; col++){
-					printf("%d ", a2DArray[ROW][COL]);
-			}
-		}
-		fclose(fp);
-	}	
+	else{
+		while(fgets(
+	}
+	fclose(fp);	
 }
 
 int main(){
