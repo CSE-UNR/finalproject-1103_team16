@@ -7,6 +7,7 @@
 #define ROW 100
 #define COL 100
 #define STR_LEN 100
+#define MAX_LEN 100
 int getMENUCHOICE();
 int getEDITCHOICE();
 
@@ -30,7 +31,7 @@ int loadImage(){
 		return 0;
 	}
 	else{
-		while(fgets(
+
 	}
 	fclose(fp);	
 }
@@ -178,6 +179,7 @@ void dimimage(){
 
 		}
 	}
+	
 }
 
 void brightenimage(){
