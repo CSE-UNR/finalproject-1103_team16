@@ -8,12 +8,15 @@
 #define COL 100
 #define STR_LEN 100
 #define MAX_LEN 100
+
+
 int getMENUCHOICE();
 int getEDITCHOICE();
 
 int loadImage();
 int saveImage();
 int cropImage();
+int displayImage();
 void dimimage();
 void brightenimage();
 //rotate image function goes here (EXTRA CREDIT)
@@ -24,7 +27,7 @@ int loadImage(){
 	printf("Please enter the name of the file you wish to load in:\n");
 	scanf("%s", filename);
 	
-	FILE *fp
+	FILE *fp;
 	fp = fopen(filename, "r");
 	if(fp = NULL){
 		printf("File cannot be opened (¬_¬')\n");
@@ -40,7 +43,7 @@ int main(){
 	int menuchoice;
 	int editchoice;
 	int loadimage;
-	int display image;
+	int displayimage;
 	
 	do{
 		menuchoice = getMENUCHOICE();
@@ -144,7 +147,7 @@ char choice;
 	}
 }
 	
-int cropImage(int a2DArray[ROW][COL], int cropRow, int cropCol){
+int cropImage(int a2DArray[ROW][COL], int row, int col, int cropRow, int cropCol, int beginRow, int beginCol){
 
 		cropRow = beginRow - ROW;
 				cropCol = beginCol - COL;
@@ -155,57 +158,58 @@ int cropImage(int a2DArray[ROW][COL], int cropRow, int cropCol){
 		}
 }		
 
-int displayImage(int a2DArray[][21], int row, col;){
-	int a2DArray[ROW][COL];
+int displayImage(int a2DArray[][21], int row, int col){
+	
 			for(row = 0; row < ROW; row++){
 				for(col = 0; col < COL; col++){
 					printf("%d ", a2DArray[row][col]);
 			}
+	}
 }
-
-void dimimage(){
-	int row;
-	int col;
+void dimimage(int a2DArray[][21], int row, int col){
+	
 	char edited[ROW][COL];
 	
 	for(row = 0; row < ROW; row++){
 		for(col = 0; col < COL; col++){
-			if(a2dARRAY[row][col] == 1){
+			if(a2DArray[row][col] == 1){
 				edited[row][col] == ' ';
 			}
-			if(a2dARRAY[row][col] == 2){
+			if(a2DArray[row][col] == 2){
 				edited[row][col] == '.';
 			}
-			if(a2dARRAY[row][col] == 3){
+			if(a2DArray[row][col] == 3){
 				edited[row][col] == 'o';
 			}
-			if(a2dARRAY[row][col] == 4){
+			if(a2DArray[row][col] == 4){
 				edited[row][col] == 'O';
 			}
 
 		}
-	}
 	
+	}
 }
 
-void brightenimage(){
-	int row;
-	int col;
+void brightenimage(int a2DArray[][21], int row, int col){
+	
 	char edited[ROW][COL];
 	
+	
 	for(col = 0; col < COL; col++){
-			if(a2dARRAY[row][col] == 0){
+			if(a2DArray[row][col] == 0){
 				edited[row][col] == '.';
 			}
-			if(a2dARRAY[row][col] == 1){
+			if(a2DArray[row][col] == 1){
 				edited[row][col] == 'o';
 			}
-			if(a2dARRAY[row][col] == 2){
+			if(a2DArray[row][col] == 2){
 				edited[row][col] == 'O';
 			}
-			if(a2dARRAY[row][col] == 3){
+			if(a2DArray[row][col] == 3){
 				edited[row][col] == '0';
 			}
 
 		}
-}
+	}
+
+
