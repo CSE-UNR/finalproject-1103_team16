@@ -135,12 +135,11 @@ int loadImage(int a2DArray[][COL]){
 		printf("\nFile cannot be opened (¬_¬')\n\n");
 		return 0;
 	}
-	else{
-		
+	else{ 	
 		while(fscanf(fp, "%c", &temp) == 1){
 			if(temp == '\n'){
 				row++;
-				col = 0;
+				
 			}
 			else if(temp != ' '){
 				a2DArray[row][col] = temp;
@@ -211,7 +210,7 @@ void cropImage(int a2DArray[][COL]){
 	int endRow;
 	int beginCol;
 	int endCol;
-	char newimage[beginRow][beginCol];
+	
 	
 	printf("Which column do you want to be the new left side?\n");
 	scanf("%d", &beginCol);
@@ -225,20 +224,23 @@ void cropImage(int a2DArray[][COL]){
 	printf("which row do you want to be the new bottom side?\n");
 	scanf("%d", &endRow);
 	
-	newimage[endRow][endCol];
+	int newRows = endRow - beginRow + 1;
+	int newCols = endCol - beginCol + 1;
 	
-	for(beginRow; beginRow < endRow; beginRow++){
-		for(beginCol; beginCol < endCol; beginCol++){
-			newimage[beginRow][beginCol] = a2DArray[beginRow][beginCol];
+	char newimage[beginRow][beginCol];
+	
+	for(int i = 0; i < newRows; i++){
+		for (int j = 0; i < newCols; j++){
+		newimage[i][j] = a2DArray[beginRow + i][beginCol + j];
 		}
 	}
-	for(beginRow; beginRow < endRow; beginRow++){
-		for(beginCol; beginCol < endCol; beginCol++){
-			printf("%c", newimage[beginRow][beginCol]);
+	
+	for(int i = 0; i < newRows; i++){
+		for(int j = 0; j < newCols; j++){
+			printf("%d", newimage[i][j]);
 		}
 	}
 }
-
 void dimimage(int a2DArray[][COL]){
 	int r;
 	int c;
