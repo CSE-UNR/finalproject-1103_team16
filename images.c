@@ -13,7 +13,7 @@
 int getMENUCHOICE();
 int getEDITCHOICE();
 
-int loadImage(int a2DArray[][COL], int row, int col);
+int loadimage(int a2DArray[][COL]);
 int saveImage();
 int cropImage();
 void displayImage();
@@ -21,38 +21,12 @@ void dimimage();
 void brightenimage();
 //rotate image function goes here (EXTRA CREDIT)
 
-int loadImage(int a2DArray[][COL], int row, int col){
-	char filename[STR_LEN+1];
-	int image = 0;
-	
-	printf("Please enter the name of the file you wish to load in:\n");
-	scanf("%s", filename);
-	
-	FILE *fp;
-	fp = fopen(filename, "r");
-	if(fp == NULL){
-		printf("\nFile cannot be opened (¬_¬')\n\n");
-		return 0;
-	}
-	
-	while(fscanf(fp, "%d", &image) == 1 && row < ROW && col < COL){
-	
-		a2DArray[row][col] = image;
-		col++;
-	if(col == COL){
-		row++;
-	
-	}
-		
-	}
-	fclose(fp);
-	
-}
+
 
 int main(){
 	int menuchoice;
 	int editchoice;
-	int loadimage;
+	int loadImage;
 	int displayimage;
 	int cropimage;
 	int a2DArray[ROW][COL];
@@ -65,13 +39,15 @@ int main(){
 		
 		switch(menuchoice){
 			case 1:
-				loadimage = loadImage(a2DArray, row, col);
+				
+				loadImage = loadimage(a2DArray);
 				break;
 			case 2:
 				displayImage();
 				break;
 			case 3:
 				editchoice = getEDITCHOICE();
+		
 				
 				switch(editchoice){
 					case 1:
@@ -146,6 +122,77 @@ int getEDITCHOICE(){
 	return userinput;
 }
 
+int loadimage(int a2DArray[][COL]){
+	char filename[STR_LEN+1];
+	char temp;
+	int row = 0;
+	int col = 0;
+	int r;
+	int c;
+	
+	
+	printf("Please enter the name of the image you wish to load in:\n");
+	scanf("%s", filename);
+	
+	FILE *fp;
+	fp = fopen(filename, "r");
+	if(fp == NULL){
+		printf("\nFile cannot be opened (¬_¬')\n\n");
+		return 0;
+	}
+	else{
+		
+		while(fscanf(fp, "%c", &temp) == 1){
+			if(temp == '\n'){
+				row++;
+				col = 0;
+			}
+			else if(temp != ' '){
+				a2DArray[row][col] = temp;
+				col++;
+			}
+		}
+		printf("\nImage successfully loaded! o(≧∇≦o)\n\n");	
+		fclose(fp);
+	}
+}
+
+void displayImage(int a2DArray[][COL], int row, int col){
+	char filename[STR_LEN+1];
+	char displayimage[ROW][COL];
+	
+	FILE *fp;
+	fp = fopen(filename, "r");
+	if(fp == NULL){
+		printf("\nBruh where tf is the image (¬_¬')\n\n");
+	}
+	else{
+		for(row = 0; row < ROW; row++){
+			for(col = 0; col < COL; col++){
+				if(a2DArray[row][col] == '0'){
+					displayimage[row][col] = ' ';
+				}
+				if(a2DArray[row][col] == '1'){
+					displayimage[row][col] = '.';
+				}
+				if(a2DArray[row][col] == '2'){
+					displayimage[row][col] = 'o';
+				}
+				if(a2DArray[row][col] == '3'){
+					displayimage[row][col] = 'O';
+				}
+				if(a2DArray[row][col] == '4'){
+					displayimage[row][col] = '0';
+				}
+			}
+		}
+		for(row = 0; row < ROW; row++){
+			for(col = 0; col < COL; col++){
+				printf("%c", displayimage[row][col]);
+			}
+		}
+	}
+}	
 
 int saveImage(int a2DArray[ROW][COL], int row, int col){
 char choice;
@@ -173,27 +220,7 @@ int cropImage(int a2DArray[ROW][COL], int row, int col, int cropRow, int cropCol
 		}
 }		
 
-void displayImage(int a2DArray[][COL], int row, int col){
-	char filename[STR_LEN+1];
-	int image = 0;
-	
-	printf("Please enter the name of the file you wish to load in:\n");
-	scanf("%s", filename);
-	
-	FILE *fp;
-	fp = fopen(filename, "r");
-	if(fp == NULL){
-		printf("\nFile cannot be opened (¬_¬')\n\n");
-		
-	}
-	
-			for(row = 0; row < ROW; row++){
-				for(col = 0; col < COL; col++){
-					printf("%d ", a2DArray[row][col]);
-			}
-			fclose(fp);
-	}
-}
+
 void dimimage(int a2DArray[][COL], int row, int col){
 	
 	char edited[ROW][COL];
