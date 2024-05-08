@@ -13,12 +13,12 @@
 int getMENUCHOICE();
 int getEDITCHOICE();
 
-int loadimage(int a2DArray[][COL]);
-int saveImage();
-int cropImage();
-void displayImage();
-void dimimage();
-void brightenimage();
+int loadImage(int a2DArray[][COL]);
+int saveImage(int a2DArray[][COL], int row, int col);
+void cropImage(int a2DArray[][COL], int row, int col, int cropRow, int cropCol, int beginRow, int beginCol);
+void displayImage(int a2DArray[][COL], int row, int col);
+void dimimage(int a2DArray[][COL], int row, int col);
+void brightenimage(int a2DArray[][COL], int row, int col);
 //rotate image function goes here (EXTRA CREDIT)
 
 
@@ -26,13 +26,10 @@ void brightenimage();
 int main(){
 	int menuchoice;
 	int editchoice;
-	int loadImage;
-	int displayimage;
-	int cropimage;
 	int a2DArray[ROW][COL];
-	
 	int row = 0;
 	int col = 0;
+	
 	
 	do{
 		menuchoice = getMENUCHOICE();
@@ -40,10 +37,10 @@ int main(){
 		switch(menuchoice){
 			case 1:
 				
-				loadImage = loadimage(a2DArray);
+				loadImage(a2DArray, row, col);
 				break;
 			case 2:
-				displayImage();
+				displayImage(a2DArray, row, col);
 				break;
 			case 3:
 				editchoice = getEDITCHOICE();
@@ -51,13 +48,13 @@ int main(){
 				
 				switch(editchoice){
 					case 1:
-						 //crop image stuff goes here
+						cropImage(a2DArray, row, col);
 						break;
 					case 2:
-						dimimage();
+						dimimage(a2DArray, row, col);
 						break;
 					case 3:
-						brightenimage();
+						brightenimage(a2DArray, row, col);
 						break;
 					case 0: //return to main menu, no need to add anything else
 						break;
@@ -122,7 +119,7 @@ int getEDITCHOICE(){
 	return userinput;
 }
 
-int loadimage(int a2DArray[][COL]){
+int loadImage(int a2DArray[][COL]){
 	char filename[STR_LEN+1];
 	char temp;
 	int row = 0;
@@ -194,7 +191,7 @@ void displayImage(int a2DArray[][COL], int row, int col){
 	}
 }	
 
-int saveImage(int a2DArray[ROW][COL], int row, int col){
+int saveImage(int a2DArray[][COL], int row, int col){
 char choice;
 	
 	printf("Would you like to save this image?\n");
@@ -209,17 +206,19 @@ char choice;
 	}
 }
 	
-int cropImage(int a2DArray[ROW][COL], int row, int col, int cropRow, int cropCol, int beginRow, int beginCol){
+void cropImage(int a2DArray[ROW][COL], int row, int col, int cropRow, int cropCol, int beginRow, int beginCol){
 
-		cropRow = beginRow - ROW;
-				cropCol = beginCol - COL;
-					for(row = beginRow; row < ROW; row++){
-						for(col = beginCol; col < COL; col++){
-							printf("%d ", a2DArray[row][col]);
-					}
-		}
-}		
+		cropRow = row - beginRow;
+		cropCol = col - beginCol;
+					for(int r = beginRow; r < beginRow + cropRow; r++){
+						for(int c = beginCol; c < beginCol + cropCol; c++){
+						if (r >= 0 && r < row && c >= 0 && c < col){
+						printf("%d ", a2DArray[r][c]);
 
+						}
+				}
+		}		
+}
 
 void dimimage(int a2DArray[][COL], int row, int col){
 	
