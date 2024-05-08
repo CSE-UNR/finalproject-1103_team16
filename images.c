@@ -157,40 +157,34 @@ void displayImage(int a2DArray[][COL]){
 	int col;
 	char filename[STR_LEN+1];
 	char displayimage[ROW][COL];
+	char temp;
 	
 	FILE *fp;
 	fp = fopen(filename, "r");
 	if(fp == NULL){
-		printf("\nBruh where tf is the image (¬_¬')\n\n");
+		printf("\nwhere is the image (¬_¬')\n\n");
 	}
 	else{
-		for(row = 0; row < ROW; row++){
-			for(col = 0; col < COL; col++){
-				if(a2DArray[row][col] == '0'){
-					displayimage[row][col] = ' ';
-				}
-				if(a2DArray[row][col] == '1'){
-					displayimage[row][col] = '.';
-				}
-				if(a2DArray[row][col] == '2'){
-					displayimage[row][col] = 'o';
-				}
-				if(a2DArray[row][col] == '3'){
-					displayimage[row][col] = 'O';
-				}
-				if(a2DArray[row][col] == '4'){
-					displayimage[row][col] = '0';
-				}
+		while(fscanf(fp, "%c", &temp) == 1){
+		if(temp == '\n'){
+		row++;
+		col = 0;
+			}
+		else if(temp != ' '){
+		a2DArray[row][col] = temp;
+		col++;
 			}
 		}
-		for(row = 0; row < ROW; row++){
-			for(col = 0; col < COL; col++){
-				printf("%c", displayimage[row][col]);
-			}
+		printf("Image was loaded!\n\n");
+		fclose(fp);
+		
+	}
+	for(int i = 0; i <=row; i++){
+		for(int j = 0; j <= col; j++){
+		a2DArray[i][j] = displayimage[i][j];
 		}
 	}
-}	
-
+}
 int saveImage(int a2DArray[][COL]){
 char choice;
 	
@@ -247,22 +241,26 @@ void dimimage(int a2DArray[][COL]){
 	int r = 0;
 	int c = 0;
 	char edited[ROW][COL];
-	
 	for(r = 0; r < ROW; r++){
 		for(c = 0; c < COL; c++){
-			if(a2DArray[r][c] = 1){
+			edited[r][c] = ' ';
+		}
+	}
+	for(r = 0; r < ROW; r++){
+		for(c = 0; c < COL; c++){
+			if(a2DArray[r][c] == 1){
 				edited[r][c] = ' ';
 			}
-			if(a2DArray[r][c] = 2){
+			if(a2DArray[r][c] == 2){
 				edited[r][c] = '.';
 			}
-			if(a2DArray[r][c] = 3){
+			if(a2DArray[r][c] == 3){
 				edited[r][c] = 'o';
 			}
-			if(a2DArray[r][c] = 4){
+			if(a2DArray[r][c] == 4){
 				edited[r][c] = 'O';
 			}
-
+		printf("\n");
 		}
 	
 	}
@@ -278,20 +276,24 @@ void brightenimage(int a2DArray[][COL]){
 	int r = 0;
 	int c = 0;
 	char edited[ROW][COL];
-	
+	for(r = 0; r < ROW; r++){
+		for(c = 0; c < COL; c++){
+			edited[r][c] = ' ';
+		}
+	}
 	for(r = 0; r < ROW; r++){
 		for(c = 0; c < COL; c++){
 			if(a2DArray[r][c] == 0){
-				edited[r+1][c+1] = '.';
+				edited[r][c] = '.';
 			}
 			if(a2DArray[r][c] == 1){
-				edited[r+1][c+1] = 'o';
+				edited[r][c] = 'o';
 			}
 			if(a2DArray[r][c] == 2){
-				edited[r+1][c+1] = 'O';
+				edited[r][c] = 'O';
 			}
 			if(a2DArray[r][c] == 3){
-				edited[r+1][c+1] = '0';
+				edited[r][c] = '0';
 			}
 
 		}
