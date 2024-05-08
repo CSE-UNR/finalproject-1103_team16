@@ -227,10 +227,10 @@ void cropImage(int a2DArray[][COL]){
 	int newRows = endRow - beginRow + 1;
 	int newCols = endCol - beginCol + 1;
 	
-	char newimage[beginRow][beginCol];
+	char newimage[newRows][newCols];
 	
 	for(int i = 0; i < newRows; i++){
-		for (int j = 0; i < newCols; j++){
+		for (int j = 0; j < newCols; j++){
 		newimage[i][j] = a2DArray[beginRow + i][beginCol + j];
 		}
 	}
@@ -239,6 +239,7 @@ void cropImage(int a2DArray[][COL]){
 		for(int j = 0; j < newCols; j++){
 			printf("%d", newimage[i][j]);
 		}
+		printf("\n");
 	}
 }
 void dimimage(int a2DArray[][COL]){
