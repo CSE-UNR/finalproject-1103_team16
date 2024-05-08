@@ -179,11 +179,6 @@ void displayImage(int a2DArray[][COL]){
 		fclose(fp);
 		
 	}
-	for(int i = 0; i <=row; i++){
-		for(int j = 0; j <= col; j++){
-		a2DArray[i][j] = displayimage[i][j];
-		}
-	}
 }
 int saveImage(int a2DArray[][COL]){
 char choice;
