@@ -139,7 +139,7 @@ int loadImage(int a2DArray[][COL]){
 		while(fscanf(fp, "%c", &temp) == 1){
 			if(temp == '\n'){
 				row++;
-				
+				col = 0;
 			}
 			else if(temp != ' '){
 				a2DArray[row][col] = temp;
@@ -148,6 +148,7 @@ int loadImage(int a2DArray[][COL]){
 		}
 		printf("\nImage successfully loaded! o(≧∇≦o)\n\n");	
 		fclose(fp);
+		printf("row = %d, column = %d", row, col);
 	}
 }
 
@@ -243,23 +244,23 @@ void cropImage(int a2DArray[][COL]){
 	}
 }
 void dimimage(int a2DArray[][COL]){
-	int r;
-	int c;
+	int r = 0;
+	int c = 0;
 	char edited[ROW][COL];
 	
 	for(r = 0; r < ROW; r++){
 		for(c = 0; c < COL; c++){
-			if(a2DArray[r][c] == 1){
-				edited[r][c] == ' ';
+			if(a2DArray[r][c] = 1){
+				edited[r][c] = ' ';
 			}
-			if(a2DArray[r][c] == 2){
-				edited[r][c] == '.';
+			if(a2DArray[r][c] = 2){
+				edited[r][c] = '.';
 			}
-			if(a2DArray[r][c] == 3){
-				edited[r][c] == 'o';
+			if(a2DArray[r][c] = 3){
+				edited[r][c] = 'o';
 			}
-			if(a2DArray[r][c] == 4){
-				edited[r][c] == 'O';
+			if(a2DArray[r][c] = 4){
+				edited[r][c] = 'O';
 			}
 
 		}
@@ -274,30 +275,32 @@ void dimimage(int a2DArray[][COL]){
 }
 
 void brightenimage(int a2DArray[][COL]){
-	int r;
-	int c;
+	int r = 0;
+	int c = 0;
 	char edited[ROW][COL];
 	
-	
-	for(c = 0; c < COL; c++){
+	for(r = 0; r < ROW; r++){
+		for(c = 0; c < COL; c++){
 			if(a2DArray[r][c] == 0){
-				edited[r][c] == '.';
+				edited[r+1][c+1] = '.';
 			}
 			if(a2DArray[r][c] == 1){
-				edited[r][c] == 'o';
+				edited[r+1][c+1] = 'o';
 			}
 			if(a2DArray[r][c] == 2){
-				edited[r][c] == 'O';
+				edited[r+1][c+1] = 'O';
 			}
 			if(a2DArray[r][c] == 3){
-				edited[r][c] == '0';
+				edited[r+1][c+1] = '0';
 			}
 
 		}
-		for(r = 0; r < ROW; r++){
-			for(c = 0; c < COL; c++){
-				printf("%c", edited[r][c]);
-			}
+	}
+	for(r = 0; r < ROW; r++){
+		for(c = 0; c < COL; c++){
+			printf("%c", edited[r][c]);
 		}
 	}
+		printf("\n");
+}
 
